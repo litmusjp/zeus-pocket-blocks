@@ -14,6 +14,13 @@ test('uses the selected speed to scale automatic drops', () => {
   assert.match(html, /dropInterval\s*=\s*baseDropInterval\s*\/\s*speed/);
 });
 
+test('offers a persistent light and dark mode switch', () => {
+  assert.match(html, /id="themeToggle"/);
+  assert.match(html, /localStorage\.setItem\('pocketBlocksTheme',theme\)/);
+  assert.match(html, /root\.dataset\.theme=theme/);
+  assert.match(html, /data-theme="light"/);
+});
+
 function test(name, fn) {
   try {
     fn();
